@@ -13,7 +13,7 @@ A mini AI-powered notes application built with Next.js, Supabase, Tailwind CSS, 
     *   **Create:** Add new notes with a title and content.
     *   **Read:** View all notes created by the logged-in user.
     *   **Delete:** Remove notes with a confirmation step.
-    *   *(Note: Edit functionality is not yet implemented)*
+    *   **Edit
 *   **AI Summarization:** Generate concise summaries of note content using the Groq API (Llama 3 model).
 *   **Responsive Design:** UI built with Shadcn UI and Tailwind CSS, adapting to different screen sizes.
 *   **Efficient Data Handling:** Uses React Query for server state management (fetching, caching, mutations).
