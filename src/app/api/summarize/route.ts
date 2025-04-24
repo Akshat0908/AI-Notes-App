@@ -57,8 +57,12 @@ ${content}`;
 
     return NextResponse.json({ summary });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in /api/summarize:', error);
-    return NextResponse.json({ error: error.message || 'Failed to get summary.' }, { status: 500 });
+    let errorMessage = 'Failed to get summary.';
+    if (error instanceof Error) {
+        errorMessage = error.message;
+    }
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 } 

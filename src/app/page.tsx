@@ -2,7 +2,7 @@
 
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation'; // Import useRouter
+// import { useRouter } from 'next/navigation'; // Removed unused import
 import { useState, FormEvent } from 'react'; // Removed useEffect
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card'; // Import Card components
 // Import Dialog components and form elements
@@ -29,12 +29,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 // Import Icons from lucide-react
 import { Plus, LogOut, Loader2, Trash2, FilePenLine, NotebookPen, Sparkles } from 'lucide-react';
 // Import React Query hooks
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import Link from 'next/link'; // Import Link
 
 // Define a type for our note structure
 type Note = {
@@ -126,7 +126,7 @@ const getSummary = async (content: string): Promise<{ summary: string }> => {
 // --- Component --- 
 
 export default function HomePage() {
-  const router = useRouter(); // Initialize router
+  // const router = useRouter(); // Removed unused initialization
   const queryClient = useQueryClient(); // Get query client instance
 
   // --- React Query Hooks --- 
@@ -340,12 +340,13 @@ export default function HomePage() {
       {/* Header */}
       <header className="sticky top-0 z-40 w-full border-b border-primary/10 bg-gradient-to-r from-background to-primary/5 backdrop-blur-sm"> {/* Give header a slightly more prominent background */}
         <div className="container flex h-16 items-center space-x-4 justify-between">
-          <a className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity" href="/">
+          {/* Use Link component instead of <a> */} 
+          <Link href="/" className="flex items-center space-x-2 text-primary hover:opacity-80 transition-opacity">
             <NotebookPen className="h-6 w-6" />
             <span className="inline-block font-bold text-lg">
               AI Notes App
             </span>
-          </a>
+          </Link>
           <nav className="flex items-center space-x-2">
             <Button variant="outline" size="icon" onClick={handleLogout}> {/* Changed to icon button */} 
               <LogOut className="h-4 w-4" />
